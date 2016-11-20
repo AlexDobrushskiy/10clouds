@@ -2,8 +2,8 @@
 
 {% block content %}
 <ul>
-    <li>{{object.url}}</li>
-    <li>{{object.shortened_postfix}}</li>
-    <li>{{object.user.username}}</li>
+    <li><a href="{{object.url}}">{{object.url}}</a>  </li>
+    <li><a href="/{{object.shortened_postfix}}">{{object.shortened_postfix}}</a></li>
+    <li>Created by: {{object.user.username}}</li>
 </ul>
 {% endblock content %}

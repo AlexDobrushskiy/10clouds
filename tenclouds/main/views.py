@@ -23,7 +23,7 @@ class RootView(FormView):
     def form_valid(self, form):
         shortened = form.create_shortented_url()
 
-        return HttpResponseRedirect(reverse())
+        return HttpResponseRedirect(reverse('shortened-details', kwargs={'postfix': shortened.shortened_postfix}))
 
 
 class ShortenedUrlDetailsView(DetailView):
@@ -32,3 +32,12 @@ class ShortenedUrlDetailsView(DetailView):
     slug_field = 'shortened_postfix'
     slug_url_kwarg = 'postfix'
 
+
+class ShortenedUrlRedirectView(DetailView):
+    model = URLStorage
+    slug_field = 'shortened_postfix'
+    slug_url_kwarg = 'postfix'
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return HttpResponseRedirect(self.object.url)

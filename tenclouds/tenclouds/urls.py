@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from main.views import RootView, ShortenedUrlDetailsView
+from main.views import RootView, ShortenedUrlDetailsView, ShortenedUrlRedirectView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^!(?P<postfix>\w+)/', ShortenedUrlDetailsView.as_view(), name='shortened-details'),
-    url(r'^(?P<postfix>\w+)/', RootView.as_view(), name='shortened'),
+    url(r'^(?P<postfix>\w+)/', ShortenedUrlRedirectView.as_view(), name='shortened'),
     url(r'^$', RootView.as_view(), name='root-view'),
 ]
