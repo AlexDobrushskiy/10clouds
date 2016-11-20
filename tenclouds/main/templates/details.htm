@@ -2,8 +2,8 @@
 
 {% block content %}
 <ul>
-    <li><a href="{{object.url}}">{{object.url}}</a>  </li>
-    <li><a href="/{{object.shortened_postfix}}">{{object.shortened_postfix}}</a></li>
+    <li>Original URL: <a href="{{object.url}}">{{object.url}}</a>  </li>
+    <li>Shortened link: <a href="/{{object.shortened_postfix}}">{{object.shortened_postfix}}</a></li>
     <li>Created by: {{object.user.username}}</li>
 </ul>
 {% endblock content %}
