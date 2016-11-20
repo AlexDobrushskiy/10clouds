@@ -1,4 +1,4 @@
-# Yet enother URL shortener service
+# Yet another URL shortener service
 
  - Root URL - entering URL form. After submitting redirects to URL details page.
  ```
